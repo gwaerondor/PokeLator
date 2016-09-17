@@ -1,9 +1,12 @@
 package pokelator;
 
 import java.awt.FlowLayout;
+import java.util.ArrayList;
+
 import javax.swing.JPanel;
 
 public class ResultPanel extends JPanel {
+	private static final long serialVersionUID = -3997379883540327215L;
 	LanguagePanel number;
 	LanguagePanel english;
 	LanguagePanel china;
@@ -11,6 +14,11 @@ public class ResultPanel extends JPanel {
 	LanguagePanel taiwan;
 
 	public ResultPanel() {
+		super();
+		setupPanel();
+	}
+	
+	private void setupPanel() {
 		this.number = new LanguagePanel("National Dex");
 		this.english = new LanguagePanel("English");
 		this.china = new LanguagePanel("简体");
@@ -24,13 +32,38 @@ public class ResultPanel extends JPanel {
 		add(hongKong);
 		add(taiwan);
 	}
-
-	public void setResult(String dexNumber, String englishName, String chinaName, String hongKongName, String taiwanName) {
-		number.setResult(dexNumber);
-		english.setResult(englishName);
-		china.setResult(chinaName);
-		hongKong.setResult(hongKongName);
-		taiwan.setResult(taiwanName);
-		return;
+	
+	public void setResults(ArrayList<ResultLine> results) {
+		clear();
+		String oldNumber;
+		String oldEng;
+		String oldCn;
+		String oldHk;
+		String oldTw;
+		
+		for(ResultLine r : results) {
+			oldNumber = number.getText();
+			number.setResult(oldNumber + "\n" + r.getDex());
+			
+			oldEng = english.getText();
+			english.setResult(oldEng + "\n" + r.getEng());
+			
+			oldCn = china.getText();
+			china.setResult(oldCn + "\n" + r.getCn());
+			
+			oldHk = hongKong.getText();
+			hongKong.setResult(oldHk+ "\n" + r.getHk());
+			
+			oldTw = taiwan.getText();
+			taiwan.setResult(oldTw+ "\n" + r.getTw());
+		}
+	}
+	
+	public void clear() {
+		number.clearResults();
+		english.clearResults();
+		china.clearResults();
+		hongKong.clearResults();
+		taiwan.clearResults();
 	}
 }

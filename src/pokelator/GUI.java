@@ -12,23 +12,28 @@ public class GUI {
 
 	public GUI() {
 		this.frame = new JFrame("PokéLator");
-		this.searchField = new JTextField("");
 		this.resultPanel = new ResultPanel();
-		
+		this.searchField = new SearchField(resultPanel);
+		JPanel wrapper = createWrapper();
+		setupFrame(wrapper);
+	}
+	
+	private JPanel createWrapper() {
 		JPanel wrapper = new JPanel();
 		BoxLayout layout = new BoxLayout(wrapper, BoxLayout.Y_AXIS);
 		wrapper.setLayout(layout);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
 		wrapper.add(searchField);
-		wrapper.add(new ResultPanel());
-		frame.add(wrapper);
+		wrapper.add(resultPanel);
+		return wrapper;
+	}
+	
+	private void setupFrame(JPanel contents){
+		frame.add(contents);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.pack();
 	}
-
 	
 	public void show() {
 		frame.setVisible(true);
 	}
-	
 }
