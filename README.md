@@ -15,10 +15,10 @@ Java will be the only requirement.
 
 # Current status
 ## Done
-Dumping the name database from Bulbapedia
-GUI skeleton
+*Dumping the name database from Bulbapedia
+*GUI skeleton
 
 ## Not done
-Importing the name database into the program
-Searching
-GUI listening to typing events so it can update hits in real time
+*Importing the name database into the program
+*Searching
+*GUI listening to typing events so it can update hits in real time
