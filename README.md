@@ -15,10 +15,15 @@ Java will be the only requirement.
 
 # Current status
 ## Done
-* Dumping the name database from Bulbapedia
-* GUI skeleton
+* Searching
+
+## Kind of done
+* GUI (Cannot be resized at the moment, I turned it off because I couldn't get the components to scale properly)
+* Dumping the name database from Bulbapedia (Only plain text dump available at the moment, I want to parse the HTML file instead to be able to separate which name comes from what language, even in the cases where space separation does not work, e.g. Mr. Mime, or for the entries that are missing names in some languages).
 
 ## Not done
 * Importing the name database into the program
-* Searching
 * GUI listening to typing events so it can update hits in real time
+
+## Maybe in the future
+* Clickable results that will bring up additional information about the selected pokémon (pokédex entries in the different languages?)
