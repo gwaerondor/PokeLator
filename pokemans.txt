@@ -1,4 +1,3 @@
-Number English Trad Simp HK
 001 Bulbasaur 妙蛙種子 妙蛙种子 奇異種子
 002 Ivysaur 妙蛙草 妙蛙草 奇異草
 003 Venusaur 妙蛙花 妙蛙花 奇異花

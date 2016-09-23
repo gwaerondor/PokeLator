@@ -1,30 +1,30 @@
 package pokelator;
 
+import java.awt.Dimension;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-
 import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 public class SearchField extends JTextField implements DocumentListener {
 	private static final long serialVersionUID = 4157842307923731734L;
-	private static final int DEX_COLUMN = 0;
-	private static final int ENG_COLUMN = 1;
-	private static final int TW_COLUMN = 2;
-	private static final int CN_COLUMN = 3;
-	private static final int HK_COLUMN = 4;
-
 	private ResultPanel results;
 
 	public SearchField(ResultPanel results) {
 		super("");
 		this.results = results;
+		this.setPreferredSize(new Dimension(600, 40));
 		getDocument().addDocumentListener(this);
+	}
+
+	@Override
+	public Dimension getMaximumSize() {
+		return new Dimension(8000, 40);
 	}
 
 	@Override
@@ -52,29 +52,35 @@ public class SearchField extends JTextField implements DocumentListener {
 	}
 
 	public void updateCurrentHits(String s) throws IOException {
-		ArrayList<String> hits = new ArrayList<String>();
-		File file = new File("E:\\PokeLator\\pokemans.txt");
-		FileInputStream fis = new FileInputStream(file);
-		InputStreamReader isr = new InputStreamReader(fis, "UTF8");
-		BufferedReader r = new BufferedReader(isr);
-		String line;
-		while ((line = r.readLine()) != null) {
-			if (line.toLowerCase().contains(s.toLowerCase())) {
-				hits.add(line);
-			}
-		}
-		r.close();
-
-		if (hits.size() > 0) {
-			ArrayList<ResultLine> resultLines = new ArrayList<ResultLine>();
-			for (String hit : hits) {
-				String[] f = hit.split("\\s");
-				ResultLine rl = new ResultLine(f[DEX_COLUMN], f[ENG_COLUMN], f[CN_COLUMN], f[HK_COLUMN], f[TW_COLUMN]);
-				System.out.println(rl.toString());
-				resultLines.add(rl);
+		try {
+			ArrayList<String> lines = readAllLinesFromFile();
+			ArrayList<String> resultLines = new ArrayList<String>();
+			for (String line : lines) {
+				if (line.contains(s)) {
+					resultLines.add(line);
+				}
 			}
 			results.setResults(resultLines);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
+	}
 
+	private ArrayList<String> readAllLinesFromFile() throws Exception {
+		File file = new File("E:\\PokeLator\\PokeLator\\pokemans.txt");
+		ArrayList<String> lines = new ArrayList<String>();
+		BufferedReader reader = createBufferedReader(file);
+		String line;
+		while ((line = reader.readLine()) != null) {
+			lines.add(line);
+		}
+		reader.close();
+		return lines;
+	}
+	
+	private BufferedReader createBufferedReader(File f) throws Exception {
+		FileInputStream fis = new FileInputStream(f);
+		InputStreamReader isr = new InputStreamReader(fis, "UTF8");
+		return new BufferedReader(isr);
 	}
 }

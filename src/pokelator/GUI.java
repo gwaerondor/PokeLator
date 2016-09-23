@@ -6,13 +6,13 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class GUI {
-	JFrame frame;
-	JTextField searchField;
-	ResultPanel resultPanel;
+	private JFrame frame;
+	private JTextField searchField;
+	private ResultPanel resultPanel;
 
 	public GUI() {
 		this.frame = new JFrame("PokéLator");
-		this.resultPanel = new ResultPanel();
+		this.resultPanel = new ResultPanel("National Dex");
 		this.searchField = new SearchField(resultPanel);
 		JPanel wrapper = createWrapper();
 		setupFrame(wrapper);
@@ -28,6 +28,7 @@ public class GUI {
 	}
 	
 	private void setupFrame(JPanel contents){
+		frame.setResizable(false);
 		frame.add(contents);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.pack();
