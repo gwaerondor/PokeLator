@@ -14,16 +14,16 @@ public class ResultPanel extends JPanel {
 	private JScrollPane scroller;
 	private DefaultListModel<String> listModel;
 	
-	public ResultPanel(String title) {
+	public ResultPanel() {
 		super();
 		this.listModel = new DefaultListModel<String>();
 		this.result = new JList<String>(listModel);
 		this.scroller = new JScrollPane(result);
-		doPreferenceSetup();
+		setupPreferences();
 		
 	}
 	
-	private void doPreferenceSetup() {
+	private void setupPreferences() {
 		result.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		result.setLayoutOrientation(JList.VERTICAL);
 		result.setVisibleRowCount(-1);

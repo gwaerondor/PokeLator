@@ -9,11 +9,11 @@ public class GUI {
 	private JFrame frame;
 	private JTextField searchField;
 	private ResultPanel resultPanel;
-
-	public GUI() {
+	
+	public GUI(Database db) {
 		this.frame = new JFrame("PokéLator");
-		this.resultPanel = new ResultPanel("National Dex");
-		this.searchField = new SearchField(resultPanel);
+		this.resultPanel = new ResultPanel();
+		this.searchField = new SearchField(resultPanel, db);
 		JPanel wrapper = createWrapper();
 		setupFrame(wrapper);
 	}
