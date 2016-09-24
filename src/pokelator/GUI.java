@@ -1,6 +1,9 @@
 package pokelator;
 
+import java.net.URL;
+
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -31,7 +34,14 @@ public class GUI {
 		frame.setResizable(false);
 		frame.add(contents);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setupIcon();
 		frame.pack();
+	}
+	
+	private void setupIcon(){
+		URL iconLocation = getClass().getResource("/assets/icon.png");
+		ImageIcon icon = new ImageIcon(iconLocation);
+		frame.setIconImage(icon.getImage());
 	}
 	
 	public void show() {
