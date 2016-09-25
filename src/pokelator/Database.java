@@ -7,6 +7,12 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class Database {
+	private final int NUMBER = 0;
+	private final int ENGLISH = 1;
+	private final int CHINA = 2;
+	private final int HONGKONG = 3;
+	private final int TAIWAN = 4;
+
 	private ArrayList<PokeData> pokemonData;
 
 	public Database(String fileDir) {
@@ -16,22 +22,50 @@ public class Database {
 
 	private void initiateData(File f) {
 		try {
-			this.pokemonData = readAllLinesFromFile(f);
+			this.pokemonData = readAllLinesFromCsvFile(f);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	private ArrayList<PokeData> readAllLinesFromFile(File file) throws Exception {
-		ArrayList<PokeData> lines = new ArrayList<PokeData>();
+	private ArrayList<PokeData> readAllLinesFromCsvFile(File file) throws Exception {
+		ArrayList<PokeData> data = new ArrayList<PokeData>();
 		BufferedReader reader = createBufferedReader(file);
 		String line;
+		String[] csvData;
 		while ((line = reader.readLine()) != null) {
-			PokeData pd = new PokeData(line);
-			lines.add(pd);
+			csvData = parseCsvData(line);
+			PokeData d = createPokeDataFromCsvData(csvData);
+			data.add(d);
 		}
-		reader.close();
-		return lines;
+		return data;
+	}
+
+	private PokeData createPokeDataFromCsvData(String[] csvData) {
+		PokeData d = new PokeData(csvData[NUMBER],
+								  csvData[ENGLISH],
+								  csvData[CHINA],
+								  csvData[HONGKONG],
+								  csvData[TAIWAN]);
+		return d;
+	}
+
+	private String[] parseCsvData(String line) {
+		String[] res = line.split(",");
+		for (int i = 0; i < res.length; i++) {
+			res[i] = stripQuotes(res[i]);
+		}
+		return res;
+	}
+
+	private String stripQuotes(String s) {
+		if (s.charAt(0) == '"') {
+			s = s.substring(1, s.length());
+		}
+		if (s.charAt(s.length() - 1) == '"') {
+			s = s.substring(0, s.length() - 1);
+		}
+		return s;
 	}
 
 	private BufferedReader createBufferedReader(File f) throws Exception {

@@ -1,20 +1,13 @@
 package pokelator;
 
 public class PokeData {
-/*
 	String number;
 	String english;
 	String china;
 	String hongkong;
 	String taiwan;
-*/
-	String data;
-	
-	public PokeData(String data) {
-		this.data = data;
-	}
-/*
-public PokeData(String number, String english, String china, String hongkong, String taiwan){
+
+	public PokeData(String number, String english, String china, String hongkong, String taiwan) {
 		this.number = number;
 		this.english = english;
 		this.china = china;
@@ -22,8 +15,7 @@ public PokeData(String number, String english, String china, String hongkong, St
 		this.taiwan = taiwan;
 	}
 
-	
-	public String toString(){
+	public String toString() {
 		String s = "#";
 		s += number + ": ";
 		s += "(ENG " + english + ") ";
@@ -31,9 +23,5 @@ public PokeData(String number, String english, String china, String hongkong, St
 		s += "(HK " + hongkong + ") ";
 		s += "(TW " + taiwan + ") ";
 		return s;
-	}
-*/
-	public String toString(){
-		return "#"+data;
 	}
 }

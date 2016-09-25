@@ -59,7 +59,7 @@ class PokeParser(HTMLParser):
 
         def print_if_necessary(self):
                 if re.match(r'^[\d\?]{3}$', self.pokemon_dict['number']):
-                        print(json.dumps(self.pokemon_dict))
+                        print(self.dict_to_csv())
 
         def init_dict(self):
                 return {'number': '',
@@ -67,6 +67,14 @@ class PokeParser(HTMLParser):
                         'china': '',
                         'taiwan': '',
                         'hongkong': ''}
+
+        def dict_to_csv(self):
+                s = '"{n}","{e}","{c}","{h}","{t}"'
+                return s.format(n = self.pokemon_dict['number'],
+                                e = self.pokemon_dict['english'],
+                                c = self.pokemon_dict['china'],
+                                h = self.pokemon_dict['hongkong'],
+                                t = self.pokemon_dict['taiwan'])
 
 parser = PokeParser()
 filename = sys.argv[1]
