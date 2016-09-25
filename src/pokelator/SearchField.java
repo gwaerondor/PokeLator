@@ -18,6 +18,7 @@ public class SearchField extends JTextField implements DocumentListener {
 		this.setPreferredSize(new Dimension(600, 40));
 		this.db = db;
 		getDocument().addDocumentListener(this);
+		update();
 	}
 
 	@Override

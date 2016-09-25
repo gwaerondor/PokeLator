@@ -37,7 +37,11 @@ public class ResultPanel extends JPanel {
 	public void setResults(ArrayList<String> res) {
 		listModel.clear();
 		for(String r : res) {
-			listModel.addElement(r);
+			listModel.addElement(formatMonospace(r));
 		}
+	}
+	
+	private String formatMonospace(String s) {
+		return "<html><pre>" + s + "</pre></html>";
 	}
 }
