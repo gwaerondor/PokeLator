@@ -34,10 +34,10 @@ public class ResultPanel extends JPanel {
 		this.add(scroller);
 	}
 	
-	public void setResults(ArrayList<String> res) {
+	public void setResults(ArrayList<PokeData> res) {
 		listModel.clear();
-		for(String r : res) {
-			listModel.addElement(formatMonospace(r));
+		for(PokeData r : res) {
+			listModel.addElement(formatMonospace(r.toString()));
 		}
 	}
 	

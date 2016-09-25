@@ -51,7 +51,7 @@ public class SearchField extends JTextField implements DocumentListener {
 	}
 
 	private void updateCurrentHits(String s) throws IOException {
-		ArrayList<String> hits = db.find(s);
+		ArrayList<PokeData> hits = db.find(s);
 		results.setResults(hits);
 	}
 }

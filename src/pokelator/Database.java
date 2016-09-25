@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class Database {
-	private ArrayList<String> pokemonData;
+	private ArrayList<PokeData> pokemonData;
 
 	public Database(String fileDir) {
 		File f = new File(fileDir);
@@ -22,12 +22,13 @@ public class Database {
 		}
 	}
 
-	private ArrayList<String> readAllLinesFromFile(File file) throws Exception {
-		ArrayList<String> lines = new ArrayList<String>();
+	private ArrayList<PokeData> readAllLinesFromFile(File file) throws Exception {
+		ArrayList<PokeData> lines = new ArrayList<PokeData>();
 		BufferedReader reader = createBufferedReader(file);
 		String line;
 		while ((line = reader.readLine()) != null) {
-			lines.add(line);
+			PokeData pd = new PokeData(line);
+			lines.add(pd);
 		}
 		reader.close();
 		return lines;
@@ -39,10 +40,11 @@ public class Database {
 		return new BufferedReader(isr);
 	}
 
-	public ArrayList<String> find(String s) {
-		ArrayList<String> hits = new ArrayList<String>();
-		for (String line : pokemonData) {
-			if (line.contains(s)) {
+	public ArrayList<PokeData> find(String s) {
+		ArrayList<PokeData> hits = new ArrayList<PokeData>();
+		for (PokeData line : pokemonData) {
+			String pd = line.toString().toLowerCase();
+			if (pd.contains(s.toLowerCase())) {
 				hits.add(line);
 			}
 		}
