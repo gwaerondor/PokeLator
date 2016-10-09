@@ -1,17 +1,29 @@
-#The Pokélator
+#The Pokélator 精灵宝可梦名字翻译软件
 Pokémon Sun and Moon will finally include the options to play the game in Chinese!
 For those of us who grew up with the English Pokémon names, there will be an initial hurdle to overcome to learn the more-than-seven-hundred names in a new language.
+精灵宝可梦太阳版和月亮般的官方版终于可以选择用中文玩了！不用在网上下载汉化版了。
+但是有的人（我）有二十多年的历史一直玩英文版的游戏现在换中文版有大困难：精灵的名字大不相同！有七百多种精灵，看到一个名字猜不出来是英文的哪种精灵。
 
-This tool, when finished, will help with that.
+This tool will help with that.
 It has a simple interface with a search box, and a box with search results in each language.
-
 Anything can be entered into the search box. If there is a hit in the Pokédex number, English name, name in simplified Chinese or in traditional Chinese, the hits will be listed showing each of those fields. Partial hits will also be shown.
+这个工具就是翻译精灵宝可梦的名字的。
+界面很简单。输入一个名字或者一个号码，结果表就会显示精灵的名字：英文、简化（大陆）、繁体（台湾）、繁体（香港）都包括。
 
 The cantonese names used in Hong Kong are also included, even though they will unfortunately not be in the officially translated versions of the games.
+香港的精灵名字包括在里面，即使任天堂这次选择用普通话的名字标准化。
 
-# Running the tool
-The tool is written in Java. No standalone executable exists yet, as the tool is not finished.
-Java will be the only requirement.
+# Running the tool 软件怎么跑
+The tool is written in Java. You must have Java installed on your system to run the application. It should work on pretty much any computer with Java installed.
+You can download the application [here](https://github.com/gwaerondor/PokeLator/raw/master/Pok%C3%A9lator.jar).
+这个工具是用Java写的。要用的话必须在你的系统安装先Java。[下载链接](https://github.com/gwaerondor/PokeLator/raw/master/Pok%C3%A9lator.jar)
+
+# How to use it 软件怎么用
+The interface has only two parts: the search bar and the result list. You can enter anything in the search bar, and if any part of any pokémon's name matches the search string, it will be displayed in the results list. See the example screenshots below.
+界面只有两个部分：上面的搜索框和下面的结果表。你可以在搜索框里输入任何语言的任何东西。符合搜索条件的精灵就会显示在下面的结果表。截图如下。
+
+![English to Chinese](Demo_screenshot_1.png)
+![Chinese to English](Demo_screenshot_2.png)
 
 # Current status
 ## Done
