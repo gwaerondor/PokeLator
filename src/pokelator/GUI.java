@@ -39,7 +39,7 @@ public class GUI {
 	}
 	
 	private void setupIcon(){
-		URL iconLocation = getClass().getResource("/assets/icon.png");
+		URL iconLocation = getClass().getResource("icon.png");
 		ImageIcon icon = new ImageIcon(iconLocation);
 		frame.setIconImage(icon.getImage());
 	}

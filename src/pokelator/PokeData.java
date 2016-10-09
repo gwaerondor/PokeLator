@@ -1,11 +1,11 @@
 package pokelator;
 
 public class PokeData {
-	String number;
-	String english;
-	String china;
-	String hongkong;
-	String taiwan;
+	private String number;
+	private String english;
+	private String china;
+	private String hongkong;
+	private String taiwan;
 
 	public PokeData(String number, String english, String china, String hongkong, String taiwan) {
 		this.number = number;

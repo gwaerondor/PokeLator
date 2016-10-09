@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
+import java.net.URL;
 import java.util.ArrayList;
 
 public class Database {
@@ -16,7 +17,8 @@ public class Database {
 	private ArrayList<PokeData> pokemonData;
 
 	public Database(String fileDir) {
-		File f = new File(fileDir);
+		URL databaseURL = getClass().getResource(fileDir);
+		File f = new File(databaseURL.getPath());
 		initiateData(f);
 	}
 
