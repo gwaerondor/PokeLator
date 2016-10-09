@@ -24,8 +24,10 @@ Java will be the only requirement.
 * GUI (Cannot be resized at the moment, I turned it off because I couldn't get the components to scale properly)
 
 ## Not done
+* Nicer representation of languages, maybe with flag icons.
 
 ## Maybe in the future
-* A nice way of printing the results that shows the language in a prettier way than putting each language in a set of parentheses.
 * Clickable results that will bring up additional information about the selected pokémon (pokédex entries in the different languages, pinyin, jyutping)
 * Adding a searchable database of move names that works much the same as the monster name database.
+* Separate the search logic from the GUI thread
+* Android app
