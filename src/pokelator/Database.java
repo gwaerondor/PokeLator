@@ -1,10 +1,8 @@
 package pokelator;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
+import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.URL;
 import java.util.ArrayList;
 
 public class Database {
@@ -17,22 +15,21 @@ public class Database {
 	private ArrayList<PokeData> pokemonData;
 
 	public Database(String fileDir) {
-		URL databaseURL = getClass().getResource(fileDir);
-		File f = new File(databaseURL.getPath());
-		initiateData(f);
+		InputStream databaseStream = getClass().getResourceAsStream(fileDir);
+		initiateData(databaseStream);
 	}
 
-	private void initiateData(File f) {
+	private void initiateData(InputStream databaseStream) {
 		try {
-			this.pokemonData = readAllLinesFromCsvFile(f);
+			this.pokemonData = readAllLinesFromCsvFile(databaseStream);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	private ArrayList<PokeData> readAllLinesFromCsvFile(File file) throws Exception {
+	private ArrayList<PokeData> readAllLinesFromCsvFile(InputStream databaseStream) throws Exception {
 		ArrayList<PokeData> data = new ArrayList<PokeData>();
-		BufferedReader reader = createBufferedReader(file);
+		BufferedReader reader = createBufferedReader(databaseStream);
 		String line;
 		String[] csvData;
 		while ((line = reader.readLine()) != null) {
@@ -70,9 +67,8 @@ public class Database {
 		return s;
 	}
 
-	private BufferedReader createBufferedReader(File f) throws Exception {
-		FileInputStream fis = new FileInputStream(f);
-		InputStreamReader isr = new InputStreamReader(fis, "UTF8");
+	private BufferedReader createBufferedReader(InputStream is) throws Exception {
+		InputStreamReader isr = new InputStreamReader(is, "UTF8");
 		return new BufferedReader(isr);
 	}
 

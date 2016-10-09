@@ -1,7 +1,8 @@
-*~
+B*~
 *.class
 .settings
 .project
 .classpath
 bin/
 bin/*
+#*#

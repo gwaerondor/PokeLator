@@ -14,7 +14,7 @@ public class GUI {
 	private ResultPanel resultPanel;
 	
 	public GUI(Database db) {
-		this.frame = new JFrame("PokéLator");
+		this.frame = new JFrame("Pokélator");
 		this.resultPanel = new ResultPanel();
 		this.searchField = new SearchField(resultPanel, db);
 		JPanel wrapper = createWrapper();
