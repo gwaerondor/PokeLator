@@ -9,7 +9,7 @@ Anything can be entered into the search box. If there is a hit in the Pokédex n
 The cantonese names used in Hong Kong are also included, even though they will unfortunately not be in the officially translated versions of the games.
 
 # 精灵宝可梦名字翻译软件
-精灵宝可梦太阳版和月亮般的官方版终于可以选择用中文玩了！不用在网上下载汉化版了。
+精灵宝可梦太阳版和月亮版的官方版终于可以选择用中文玩了！不用在网上下载汉化版了。
 但是有的人（我）有二十多年的历史一直玩英文版的游戏现在换中文版有大困难：精灵的名字大不相同！有七百多种精灵，看到一个名字猜不出来是英文的哪种精灵。
 
 这个工具就是翻译精灵宝可梦的名字的。
