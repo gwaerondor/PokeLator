@@ -18,13 +18,15 @@ public class PokeData {
 	}
 
 	public String toString() {
-		String s = getImageString();
-		s += "#";
-		s += number + ": ";
+		String s = "<html>";
+		s += getImageString();
+		s += "<kbd>#";
+		s += number + ":</kbd> ";
 		s += "(ENG " + english + ") ";
 		s += "(CN " + china + ") ";
 		s += "(HK " + hongkong + ") ";
-		s += "(TW " + taiwan + ") ";
+		s += "(TW " + taiwan + ")";
+		s += "</html>";
 		return s;
 	}
 	

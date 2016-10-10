@@ -27,7 +27,6 @@ public class ResultPanel extends JPanel {
 		result.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		result.setLayoutOrientation(JList.VERTICAL);
 		result.setVisibleRowCount(-1);
-		result.setAlignmentY(CENTER_ALIGNMENT);
 		this.setPreferredSize(new Dimension(600,400));
 		scroller.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		scroller.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
@@ -38,11 +37,7 @@ public class ResultPanel extends JPanel {
 	public void setResults(ArrayList<PokeData> res) {
 		listModel.clear();
 		for(PokeData r : res) {
-			listModel.addElement(formatMonospace(r.toString()));
+			listModel.addElement(r.toString());
 		}
-	}
-	
-	private String formatMonospace(String s) {
-		return "<html><pre>" + s + "</pre></html>";
 	}
 }
