@@ -22,7 +22,7 @@ The tool is written in Java. You must have Java installed on your system to run 
 You can download the application [here](https://github.com/gwaerondor/PokeLator/raw/master/Pok%C3%A9lator.jar).
 
 # 软件怎么跑
-这个工具是用Java写的。要用的话必须在你的系统安装先Java。[下载翻译工具](https://github.com/gwaerondor/PokeLator/raw/master/Pok%C3%A9lator.jar)
+这个工具是用Java写的。要用的话必须在你的系统安装下Java。[下载翻译工具](https://github.com/gwaerondor/PokeLator/raw/master/Pok%C3%A9lator.jar)
 
 # How to use it
 The interface has only two parts: the search bar and the result list. You can enter anything in the search bar, and if any part of any pokémon's name matches the search string, it will be displayed in the results list. See the example screenshots below.
